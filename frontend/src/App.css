@@ -1364,7 +1364,16 @@ main {
         padding-left: 1rem;
         padding-right: 1rem;
     }
+    /* @media (max-width: 479px) bloki ichiga qo'shing */
 
+    /* newwww */
+    .products-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 1.5rem;
+    }
+/* /newww */
     main {
         padding: 0 0.75rem;
     }
