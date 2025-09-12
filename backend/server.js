@@ -238,12 +238,11 @@ if (process.env.NODE_ENV === 'production') {
 
     // API so'rovlaridan boshqa har qanday so'rovni (masalan, /about, /products/123)
     // React'ning index.html fayliga yo'naltiramiz. Bu client-side routing uchun kerak.
-    // TO'G'RI KOD
-    app.get(/^(?!\/api).+/, (req, res) => {
+    app.get('*', (req, res) => {
         res.sendFile(path.resolve(__dirname, '..', 'frontend', 'build', 'index.html'));
     });
 }
-// --- Avtomatik Yangilash (Cron Job) ---
+
 async function runFetchAndUpdate() {
     console.log(`\n[${new Date().toLocaleString()}] Avtomatik yangilanish jarayoni boshlandi...`);
     try {

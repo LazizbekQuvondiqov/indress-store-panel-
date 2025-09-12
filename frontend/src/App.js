@@ -7,9 +7,10 @@ import toast, { Toaster } from 'react-hot-toast';
 
 // frontend/src/App.js
 
-const API_URL = process.env.NODE_ENV === 'production'
-  ? '/api'
-  : (process.env.REACT_APP_API_URL || 'http://localhost:3000/api');
+// frontend/src/App.js
+
+// frontend/src/App.js
+const API_URL = '/api';
 
 // const API_URL = process.env.REACT_APP_API_URL || 'https://sizning-backend-nomingiz.up.railway.app/api';
 const INITIAL_LOAD_COUNT = 16;
