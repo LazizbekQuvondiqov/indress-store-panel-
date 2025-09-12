@@ -238,7 +238,8 @@ if (process.env.NODE_ENV === 'production') {
 
     // API so'rovlaridan boshqa har qanday so'rovni (masalan, /about, /products/123)
     // React'ning index.html fayliga yo'naltiramiz. Bu client-side routing uchun kerak.
-    app.get('*', (req, res) => {
+    // TO'G'RI KOD
+    app.get(/^(?!\/api).+/, (req, res) => {
         res.sendFile(path.resolve(__dirname, '..', 'frontend', 'build', 'index.html'));
     });
 }
