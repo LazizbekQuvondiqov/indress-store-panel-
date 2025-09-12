@@ -1359,7 +1359,7 @@ main {
 }
 
 /* 3. Faqat kichik telefonlar uchun */
-@media (max-width: 479px) {
+@media (max-width: 469px) {
     nav, .mobile-controls-container {
         padding-left: 1rem;
         padding-right: 1rem;
