@@ -1359,7 +1359,7 @@ main {
 }
 
 /* 3. Faqat kichik telefonlar uchun */
-@media (max-width: 469px) {
+@media (max-width: 479px) {
     nav, .mobile-controls-container {
         padding-left: 1rem;
         padding-right: 1rem;
@@ -1367,12 +1367,12 @@ main {
     /* @media (max-width: 479px) bloki ichiga qo'shing */
 
     /* newwww */
-    .products-grid {
+    /* .products-grid {
 
         grid-template-columns: 1fr;
 
         gap: 1.5rem;
-    }
+    } */
 /* /newww */
     main {
         padding: 0 0.75rem;
