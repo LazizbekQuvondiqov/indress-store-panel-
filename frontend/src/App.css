@@ -84,6 +84,8 @@ body {
     font-feature-settings: 'kern';
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden; /* Gorizontal toshib ketishni butunlay yashiradi */
+
 }
 
 /* ========================================================================== */
@@ -1292,6 +1294,30 @@ main {
         padding: 0.5rem 0;
     }
 
+    /* @media (max-width: 767px) bloki ichiga qo'shing */
+.filter-buttons-container {
+    /* Bu konteynerga aniq kenglik beramiz */
+    width: 100%;
+}
+
+    .filter-buttons {
+        animation: none;
+        /* Elementlarni oddiy scroll qilish imkonini beramiz */
+        justify-content: flex-start;
+        /* Duplikat qilingan tugmalar kerak emas, shuning uchun flex-wrap qo'shamiz */
+        flex-wrap: wrap; /* Bu tugmalar sig'maganda pastki qatorga tushishiga olib kelishi mumkin */
+
+    }
+    /* @media (max-width: 767px) bloki ichiga qo'shing */
+  .filter-buttons-container {
+      overflow-x: auto;
+  }
+
+  .filter-buttons {
+      animation: none;
+      justify-content: flex-start;
+
+  }
     nav {
         flex-wrap: nowrap; /* Elementlar pastga tushib ketmasin */
         gap: 8rem;
