@@ -238,9 +238,11 @@ if (process.env.NODE_ENV === 'production') {
 
     // API so'rovlaridan boshqa har qanday so'rovni (masalan, /about, /products/123)
     // React'ning index.html fayliga yo'naltiramiz. Bu client-side routing uchun kerak.
-    app.get('*', (req, res) => {
-        res.sendFile(path.resolve(__dirname, '..', 'frontend', 'build', 'index.html'));
-    });
+   // APIga tegishli bo'lmagan BARCHA so'rovlarni React ilovasiga yo'naltiramiz.
+// Bu qator har doim BOSHQA BARCHA yo'llardan (route) keyin turishi shart.
+      app.get('/*', (req, res) => {
+        res.sendFile(path.join(__dirname, '..', 'frontend', 'build', 'index.html'));
+      });
 }
 
 async function runFetchAndUpdate() {
