@@ -1,0 +1,22 @@
+# Node.js loyihalari uchun
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Backend
+backend/node_modules
+backend/data/favorites.json # Sevimlilar fayli serverda o'zgaradi, repoga qo'shilmasin
+
+# Frontend (Create React App)
+frontend/node_modules
+frontend/build
+
+# Muhit o'zgaruvchilari fayllari (XAVFSIZLIK UCHUN!)
+.env
+backend/.env
+frontend/.env
+frontend/.env.local
+
+# Tizim fayllari
+.DS_Store
+Thumbs.db
