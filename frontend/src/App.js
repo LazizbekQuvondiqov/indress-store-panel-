@@ -5,7 +5,11 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import toast, { Toaster } from 'react-hot-toast';
 
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3000/api';
+// frontend/src/App.js
+
+const API_URL = process.env.NODE_ENV === 'production'
+  ? '/api'
+  : (process.env.REACT_APP_API_URL || 'http://localhost:3000/api');
 
 // const API_URL = process.env.REACT_APP_API_URL || 'https://sizning-backend-nomingiz.up.railway.app/api';
 const INITIAL_LOAD_COUNT = 16;
