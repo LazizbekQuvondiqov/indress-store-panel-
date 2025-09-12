@@ -232,17 +232,21 @@ app.post('/api/favorites/toggle', async (req, res) => {
     res.json({ favorites, isFavorite });
 });
 
+// =================================================================
+//         PRODUCTION UCHUN FRONTEND'NI ULASH (YAKUNIY YECHIM)
+// =================================================================
 if (process.env.NODE_ENV === 'production') {
-    // Frontend'ning qurilgan (build) papkasini statik fayl manbai sifatida belgilaymiz
-    app.use(express.static(path.join(__dirname, '..', 'frontend', 'build')));
+    // 1. Birinchi navbatda, 'build' papkasini statik fayllar manbai sifatida e'lon qilamiz.
+    // Bu CSS, JS va rasm fayllarini to'g'ri topish uchun kerak.
+    const buildPath = path.join(__dirname, '..', 'frontend', 'build');
+    app.use(express.static(buildPath));
 
-    // API so'rovlaridan boshqa har qanday so'rovni (masalan, /about, /products/123)
-    // React'ning index.html fayliga yo'naltiramiz. Bu client-side routing uchun kerak.
-   // APIga tegishli bo'lmagan BARCHA so'rovlarni React ilovasiga yo'naltiramiz.
-// Bu qator har doim BOSHQA BARCHA yo'llardan (route) keyin turishi shart.
-      app.get('/*', (req, res) => {
-        res.sendFile(path.join(__dirname, '..', 'frontend', 'build', 'index.html'));
-      });
+    // 2. BARCHA QOLGAN so'rovlarni (API yo'llaridan tashqari)
+    // React'ning 'index.html' fayliga yuboramiz.
+    // Bu har doim BOSHQA BARCHA yo'llardan (route) keyin turishi shart!
+    app.use((req, res) => {
+        res.sendFile(path.join(buildPath, 'index.html'));
+    });
 }
 
 async function runFetchAndUpdate() {
