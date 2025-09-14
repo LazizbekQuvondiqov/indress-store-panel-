@@ -85,8 +85,8 @@ const Header = ({ favoritesCount, onViewFavorites, showingFavorites, searchTerm,
 const Hero = () => (
     <section className="hero">
         <div className="hero-content">
-            <h1>O‘z biznesingizni rivojlantiring!</h1>
-            <p>Eng so‘nggi kolleksiyalar, hamyonbop narx va sifat kafolati — kiyim-kechak optom savdosi uchun eng yaxshi manzil.</p>
+            <h1>Indress</h1>
+            <p>Erkaklar Kiyimlari – Ulgurji Narxlarda</p>
             <a href="#products" className="cta-button">Kolleksiyani ko'rish</a>
         </div>
     </section>
@@ -240,14 +240,34 @@ const ContactModal = ({ isOpen, onClose }) => {
     );
 };
 
+// App.js faylida
+
 const ProductDetailModal = ({ isOpen, onClose, product, selectedVariant: initialVariant, onOrder }) => {
     const [currentVariant, setCurrentVariant] = useState(initialVariant);
 
+    // Modal har safar yangi mahsulot bilan ochilganda, tanlangan variantni yangilaymiz
     useEffect(() => {
         setCurrentVariant(initialVariant);
     }, [initialVariant]);
 
     if (!isOpen || !product || !currentVariant) return null;
+
+    const { variants } = product;
+    const currentIndex = variants.findIndex(v => v.id === currentVariant.id);
+
+    // Keyingi variantga o'tish funksiyasi
+    const handleNextVariant = (e) => {
+        e.stopPropagation(); // Orqa fonga bosilishini oldini oladi
+        const nextIndex = (currentIndex + 1) % variants.length;
+        setCurrentVariant(variants[nextIndex]);
+    };
+
+    // Oldingi variantga o'tish funksiyasi
+    const handlePrevVariant = (e) => {
+        e.stopPropagation();
+        const prevIndex = (currentIndex - 1 + variants.length) % variants.length;
+        setCurrentVariant(variants[prevIndex]);
+    };
 
     return (
         <div className="modal-overlay" onClick={onClose}>
@@ -256,6 +276,14 @@ const ProductDetailModal = ({ isOpen, onClose, product, selectedVariant: initial
                 <div className="detail-layout">
                     <div className="detail-image-gallery">
                         <img src={currentVariant.img} alt={`${product.name} - ${currentVariant.color}`} />
+
+                        {/* --- YANGI QO'SHILGAN TUGMALAR --- */}
+                        {variants.length > 1 && (
+                            <div className="modal-variant-switcher">
+                                <button onClick={handlePrevVariant}>‹</button>
+                                <button onClick={handleNextVariant}>›</button>
+                            </div>
+                        )}
                     </div>
                     <div className="detail-info">
                         <h2>{product.name}</h2>
@@ -264,7 +292,7 @@ const ProductDetailModal = ({ isOpen, onClose, product, selectedVariant: initial
                         <p className="detail-description">Bu mahsulot yuqori sifatli matodan tayyorlangan bo'lib, har qanday ob-havoda sizga qulaylik bag'ishlaydi.</p>
 
                         <div className="detail-variants">
-                            <h4>Ranglar:</h4>
+                            <h4>Ranglar: ({currentIndex + 1}/{variants.length})</h4>
                             <div className="variant-colors">
                                 {product.variants.map((v) => (
                                     <span key={v.id}
@@ -287,7 +315,6 @@ const ProductDetailModal = ({ isOpen, onClose, product, selectedVariant: initial
         </div>
     );
 };
-
 // --- Asosiy Ilova ---
 
 function App() {
