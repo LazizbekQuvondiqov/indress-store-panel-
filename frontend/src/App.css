@@ -457,7 +457,7 @@ main {
 .section h2 {
     text-align: center;
     font-size: clamp(2rem, 4vw, 3rem);
-    margin-bottom: 3rem;
+    margin-bottom: 0;
     font-weight: 700;
     background: var(--gradient-primary);
     -webkit-background-clip: text;
@@ -484,14 +484,13 @@ main {
 
 .filter-buttons-container {
    position: sticky;
-    top: 80px;
+    top: 120px;
     background: rgba(15, 23, 42, 0.9);
     backdrop-filter: blur(15px);
     z-index: 900;
     padding: 1rem 0;
     max-width: 100%;
     overflow-x: auto;
-    position: relative;
     margin-bottom: 3rem;
     -ms-overflow-style: none;
     scrollbar-width: none;
