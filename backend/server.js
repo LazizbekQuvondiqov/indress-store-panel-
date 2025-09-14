@@ -120,8 +120,8 @@ function processProducts(rawProducts) {
     console.log(`1. Boshlang'ich mahsulotlar soni: ${rawProducts.length}`);
 
     const simplifiedProducts = rawProducts.map(simplifyProduct);
-    const filteredVariants = simplifiedProducts.filter(variant => variant.stock > 3);
-    console.log(`2. Qoldig'i > 3 bo'yicha filtrlangan VARIANTLAR soni: ${filteredVariants.length}`);
+    const filteredVariants = simplifiedProducts.filter(variant => variant.stock > 5);
+    console.log(`2. Qoldig'i > 5 bo'yicha filtrlangan VARIANTLAR soni: ${filteredVariants.length}`);
 
     const groupedBySku = filteredVariants.reduce((acc, p) => {
         const key = normalize(p.sku);
