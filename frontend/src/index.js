@@ -4,7 +4,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
 import ReactGA from 'react-ga4'; // <-- 1. BU QATORNI IMPORT QILING
 
 // 2. GOOGLE ANALYTICS'NI INITSALIZATSIYA QILING
@@ -22,5 +21,3 @@ root.render(
     <App />
   </React.StrictMode>
 );
-
-reportWebVitals();
