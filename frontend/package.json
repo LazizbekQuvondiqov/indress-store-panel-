@@ -20,7 +20,7 @@
   "build": "cd frontend && npm run build",
   "start": "cd backend && node server.js",
   "dev": "echo 'Run dev in respective folders' && exit 1"
-}
+},
   "eslintConfig": {
     "extends": [
       "react-app",
