@@ -1,32 +1,16 @@
 {
   "name": "indress-store-monorepo",
   "version": "1.0.0",
+  "description": "The main package to run both frontend and backend for Indress Store.",
   "private": true,
-  "scripts": {
-    "build": "cd frontend && npm run build",
-    "start": "cd backend && node server.js"
-  },
-  "author": "Lazizbek Quvondiqov",
-  "license": "ISC",
-  "dependencies": {
-    "axios": "^1.11.0",
-    "compression": "^1.8.1",
-    "cors": "^2.8.5",
-    "dotenv": "^17.2.2",
-    "express": "^5.1.0",
-    "node-cron": "^4.2.1",
-    "@testing-library/jest-dom": "^6.8.0",
-    "@testing-library/react": "^16.3.0",
-    "@testing-library/user-event": "^13.5.0",
-    "react": "^19.1.1",
-    "react-dom": "^19.1.1",
-    "react-ga4": "^2.1.0",
-    "react-hot-toast": "^2.6.0",
-    "react-lazy-load-image-component": "^1.6.3",
-    "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
-  },
-  "devDependencies": {
-    "nodemon": "^3.1.10"
-  }
+"scripts": {
+  "install:backend": "cd backend && npm install",
+  "install:frontend": "cd frontend && npm install",
+  "install": "npm run install:backend && npm run install:frontend",
+  "build": "cd frontend && npm run build",
+  "start": "cd backend && node server.js",
+  "railway:start": "npm run build && npm run start"
+},
+  "author": "Your Name",
+  "license": "ISC"
 }
