@@ -1,16 +1,15 @@
 {
   "name": "indress-store-monorepo",
   "version": "1.0.0",
-  "description": "The main package to run both frontend and backend for Indress Store.",
   "private": true,
-"scripts": {
-  "install:backend": "cd backend && npm install",
-  "install:frontend": "cd frontend && npm install",
-  "install": "npm run install:backend && npm run install:frontend",
-  "build": "cd frontend && npm run build",
-  "start": "cd backend && node server.js",
-  "railway:start": "npm run build && npm run start"
-},
-  "author": "Your Name",
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "build": "npm run build --workspace=frontend",
+    "start": "npm start --workspace=backend"
+  },
+  "author": "Lazizbek Quvondiqov",
   "license": "ISC"
 }
