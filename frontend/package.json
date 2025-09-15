@@ -10,13 +10,12 @@
     "axios": "^1.11.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-    "react-ga4": "^2.1.0",
     "react-hot-toast": "^2.6.0",
     "react-lazy-load-image-component": "^1.6.3",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
-   "scripts": {
+  "scripts": {
     "start": "set PORT=3001 && react-scripts start",
     "build": "react-scripts build",
     "fetch": "node fetch-and-save.js",
